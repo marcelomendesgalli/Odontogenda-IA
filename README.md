@@ -1,41 +1,58 @@
-# Odontogenda-IA
-Odontogenda: Análise de Demanda por Horário em Consultas Odontológicas
-Descrição Geral
+# Odontogenda-IA: Análise de Demanda por Horário em Consultas Odontológicas
 
-Este projeto tem como objetivo desenvolver uma aplicação que possibilite a análise de demanda por horários de consulta, com foco na otimização da alocação de recursos e agendamento. Diferente da proposta inicial, que focava na análise de faixa etária dos pacientes, esta etapa do projeto se concentra na identificação dos horários com maior demanda. Essa nova abordagem permite uma análise mais direta dos picos de uso, contribuindo para melhorias no gerenciamento de horários e na experiência dos pacientes.
+## Descrição Geral
 
-Objetivos Específicos
+Este projeto desenvolve uma aplicação para análise de demanda por horários de consulta odontológica, focando na otimização da alocação de recursos e agendamento. O sistema agora inclui um componente de recomendação inteligente de horários, aprimorando a gestão de agendamentos e a experiência dos pacientes.
 
-1. Diferença Entre a Etapa Atual e a Primeira Entrega
+## Objetivos Específicos
 
-Na primeira entrega, a proposta era realizar uma análise com base na faixa etária dos pacientes e analisar qual delas possuei a maior tendência de cancelamento. Essa abordagem foi revista para atender melhor à demanda da aplicação e aos interesses dos usuários. Agora, o foco está nos horários mais procurados durante a semana, o que permite identificar diretamente os horários de pico e adaptar a gestão da clínica conforme essas demandas.
+- Identificar os horários de maior demanda para consultas odontológicas.
+- Analisar padrões de agendamento por dia da semana e especialidade.
+- Implementar um sistema de recomendação de horários baseado nos dados históricos.
 
-2. Frameworks, Bibliotecas e Ferramentas Utilizadas
+## Frameworks, Bibliotecas e Ferramentas Utilizadas
 
-SQLite3: Utilizado como banco de dados embutido para armazenar informações das consultas (paciente, especialidade, dia da semana, horário e data).
+- SQLite3: Banco de dados para armazenamento de informações das consultas.
+- Pandas: Manipulação e análise de dados.
+- Matplotlib: Visualização gráfica dos dados.
 
-Pandas: Biblioteca utilizada para manipulação e análise de dados, permitindo operações como agrupamentos e contagem, essenciais para identificar os horários de maior demanda.
+## Funcionamento dos Recursos/Ferramentas na Aplicação
 
-Matplotlib: Utilizada para visualização gráfica dos dados, o que ajuda a entender os horários de pico de maneira visual.
+1. SQLite3: Armazena dados das consultas, permitindo consultas rápidas.
+2. Pandas: Realiza leitura e análise dos dados do banco SQLite.
+3. Matplotlib: Exibe graficamente os horários de pico de demanda.
+4. Sistema de Recomendação: Sugere horários menos ocupados com base no histórico.
 
-3. Funcionamento dos Recursos/Ferramentas na Aplicação
+## Uso de Machine Learning / IA
 
-SQLite3: Armazena todos os dados das consultas, permitindo consultas e filtragens rápidas diretamente no banco de dados. Pandas: Realiza a leitura do banco de dados SQLite para um DataFrame, facilitando as operações de análise. Com o Pandas, agrupamos e ordenamos os dados por horário para identificar períodos de maior uso. Matplotlib: Exibe graficamente os dados dos horários de pico, melhorando a visualização e permitindo insights visuais sobre a demanda.
+O projeto agora inclui um sistema de recomendação simples, que analisa os padrões históricos de agendamento para sugerir horários menos ocupados. Esta implementação prepara o terreno para futuras aplicações mais avançadas de Machine Learning, como:
 
-4. Uso de Machine Learning / IA
+- Modelos de previsão de demanda para identificar futuros horários de maior procura.
+- Algoritmos de aprendizado supervisionado para prever o volume de consultas.
 
-Nesta etapa do projeto, a coleta e estruturação de dados preparam o terreno para futuras aplicações de Machine Learning. Com o histórico de horários e demanda, é possível:
+## Estrutura do Projeto
 
-Aplicar modelos de previsão de demanda para identificar horários futuros de maior procura.
+- `consultas.db`: Banco de dados SQLite com a tabela de consultas.
+- Scripts Python:
+- Configuração do banco de dados
+- Inserção de dados fictícios
+- Análise de demanda por horário
+- Visualização gráfica dos horários de pico
+- Sistema de recomendação de horários
+- Gráficos: Visualizações dos horários mais demandados.
 
-Utilizar algoritmos de aprendizado supervisionado para prever o volume de consultas com base no histórico, auxiliando na tomada de decisões para alocação de recursos.
+## Nova Funcionalidade: Sistema de Recomendação de Horários
 
-Estrutura do Projeto
+O sistema de recomendação implementado oferece sugestões de horários menos ocupados com base no dia da semana e na especialidade desejada. Funcionalidades:
 
-Banco de Dados (consultas.db): Contém a tabela consultas, que armazena os dados das consultas. Scripts: Scripts em Python que configuram o banco de dados, inserem dados fictícios, realizam consultas para análise e exibem gráficos de horários de pico. Gráficos: Visualização dos horários mais demandados, gerados com Matplotlib.
+- Filtra consultas por dia da semana e especialidade.
+- Analisa a frequência de agendamentos em cada horário.
+- Recomenda os três horários menos ocupados, promovendo uma distribuição mais equilibrada das consultas.
 
-Integrantes
+Este recurso auxilia na otimização do agendamento, reduzindo a concentração em horários de pico e melhorando a eficiência operacional da clínica.
 
-Erick Lopes Silva - RM 553927
+## Próximos Passos
 
-Gabriel Sá Bragança - RM 554064
+- Integração com interface de usuário para fácil visualização das recomendações.
+- Implementação de modelos preditivos mais avançados.
+- Análise de fatores adicionais que influenciam a demanda por horários.
